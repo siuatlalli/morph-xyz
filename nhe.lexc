@@ -1,25 +1,50 @@
 Multichar_Symbols
 
 %<n%>                ! Nombre
+%<v%>                ! Verbo
 
 %<abs%>              ! Forma absoluta
 %<af%>               ! Afectivo
 %<dim%>              ! Diminutivo
 
-%<pl%>               ! Plural
 
-%<px1pl%>           ! Posesivo 1era plural
-%<px1sg%>
-%<px2pl%>
-%<px2sg%>
-%<px3pl%>
-%<px3sg%>
+%<pl%>               ! PluraL no poseido
+%<plps%>             ! Plural poseido singular
+%<plpp%>             ! Plural poseido plural
 
+%<px1pl%>            ! Posesivo 1era plural
+%<px1sg%>            ! Posesivo 1era singular
+%<px2pl%>            ! Posesivo 2da plural
+%<px2sg%>            ! Posesivo 2da singular
+%<px3pl%>            ! Posesivo 3ra plural
+%<px3sg%>            ! Posesivo 3ra singular
+
+@U.POSS.SG@          ! Posesivo singular
+@U.POSS.PL@          ! Posesivo plural
+@D.POSS@
+
+@U.S_NBR.PL@
+@U.S_NBR.SG@
+
+%<suj1sg%>           ! Sujeto 1ra singular
+%<suj2sg%>           ! Sujeto 2da singular
+%<suj3sg%>           ! Sujetos 3ra singular
+%<suj1pl%>           ! Sujeto 1ra plural
+%<suj2pl%>           ! Sujeto 2da plural
+%<suj3pl%>           ! Sujeto 3ra plural
+
+%<apl%>               ! Aplicativo
+%{l%}            
 LEXICON Root
 
 DIMINUTIVE;
 POSSESSIVE;
+PERSONA-SUJETO;
+
 STEMS ;
+
+LEXICON V-STEMS
+chiwa:chiwa V ; ! "hacer"
 
 LEXICON STEMS
 
@@ -31,7 +56,7 @@ tli:tli N-siwa ; ! "fuego"
 soki:soki N-siwa ; ! "lodo"
 kone:kone N-siwa ; ! "niño"
 ichpoka:ichpoka N-siwa ; ! "muchacha"
-xiwi-xiwi N-siwa ; ! "año"
+xiwi:xiwi N-siwa ; ! "año"
 e:e N-siwa ; ! "frijol"
 peta:peta N-siwa ; ! "petate"
 papalo:papalo N-siwa ; ! "mariposa"
@@ -44,15 +69,46 @@ tenamas:tenamas N-mes ; ! "piedra de fogata"
 tekomi:tekomi N-siwa ; ! "jicara"
 tenami:tenami N-siwa ; ! "muro"
 
+LEXICON PERSONA-SUJETO
+@U.S_NBR.SG@%<suj1sg%>:@U.S_NBR.SG@ni%> PERSONA-OBJETO ;
+@U.S_NBR.SG@%<suj2sg%>:@U.S_NBR.SG@ti%> PERSONA-OBJETO  ;
+@U.S_NBR.SG@%<suj3sg%>:@U.S_NBR.SG@%> PERSONA-OBJETO  ;
+@U.S_NBR.PL@%<suj1pl%>:@U.S_NBR.PL@ti%> PERSONA-OBJETO  ;
+@U.S_NBR.PL@%<suj2pl%>:@U.S_NBR.PL@in%> PERSONA-OBJETO  ;
+@U.S_NBR.PL@%<suj3pl%>:@U.S_NBR.PL@%> PERSONA-OBJETO  ;
 
-LEXICON N-siwa
+LEXICON PERSONA-OBJETO
+%<obj1sg%>:nech%> VERBO-DIR ;
+%<obj2sg%>:mits%> VERBO-DIR ;
+%<obj3sg%>:ki%> VERBO-DIR;
+%<obj1pl%>:tech%> VERBO-DIR ;
+%<obj2pl%>:imech%> VERBO-DIR ;
+%<obj3pl%>:kin%> VERBO-DIR ;
 
-%<n%>%<abs%>:%>tl # ;
-%<n%>: FLEXION ;
+LEXICON VERBO-DIR
+
+%<ill%>:on%> V-STEMS ;
+%<all%>:wa꞉l%> V-STEMS ;
+
+LEXICON V
+%<v%>: VERBO-APL ;
+LEXICON VERBO-APL
+%<apl%>:%>%{l%}ia VERBO-NUM;
+
+LEXICON VERBO-NUM
+
+
+@U.S_NBR.SG@:@U.S_NBR.SG@ # ;
+@U.S_NBR.PL@:@U.S_NBR.PL@%>h # ;
 
 LEXICON N-tlal
 
 %<n%>%<abs%>:%>li # ;
+%<n%>: FLEXION ;
+
+LEXICON N-siwa
+
+@D.POSS@%<n%>%<abs%>:@D.POSS@%>tl # ;
 %<n%>: FLEXION ;
 
 LEXICON N-mes
@@ -61,17 +117,22 @@ LEXICON N-mes
 %<n%>: FLEXION ;
 
 LEXICON FLEXION
-%<pl%>:%>me # ;
+@D.POSS@%<pl%>:@D.POSS@%>me # ;
 %<af%>:%>tsi # ;
-%<pl%>%<af%>:%>tsitsi # ;
+@D.POSS@%<pl%>%<af%>:@D.POSS@%>tsitsi # ;
+@U.POSS.SG@%<plps%>:@U.POSS.SG@%>wa # ;
+@U.POSS.PL@%<plpp%>:@U.POSS.PL@%>wah # ;
+
+
 
 LEXICON DIMINUTIVE
 %<dim%>:pil%> STEMS ;
+              STEMS ;
 
 LEXICON POSSESSIVE
-%<px1sg%>:no%> STEMS ;
-%<px2sg%>:mo%> STEMS ;
-%<px3sg%>:i%> STEMS ;
-%<px1pl%>:to%> STEMS ;
-%<px2pl%>:imo%> STEMS ;
-%<px3pl%>:in%> STEMS ;
+@U.POSS.SG@%<px1sg%>:@U.POSS.SG@no%> DIMINUTIVE ;
+@U.POSS.SG@%<px2sg%>:@U.POSS.SG@mo%> DIMINUTIVE ;
+@U.POSS.SG@%<px3sg%>:@U.POSS.SG@i%> DIMINUTIVE ;
+@U.POSS.PL@%<px1pl%>:@U.POSS.PL@to%> DIMINUTIVE ;
+@U.POSS.PL@%<px2pl%>:@U.POSS.PL@imo%> DIMINUTIVE ;
+@U.POSS.PL@%<px3pl%>:@U.POSS.PL@in%> DIMINUTIVE ;

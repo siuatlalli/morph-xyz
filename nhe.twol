@@ -1,0 +1,14 @@
+Alphabet
+
+a b c d e f g h i k l m n o p q r s t u w x y ꞉
+%>:0
+%{l%}:l ;
+
+
+Rules
+
+"cambio vocalico"
+a:i <=> _ %>: %{l%}: ;
+
+!n i > m i t s > c h i w a > {l} i a
+!n i 0 m i t s 0 c h i w i 0 l i a
